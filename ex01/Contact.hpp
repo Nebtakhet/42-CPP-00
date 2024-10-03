@@ -6,7 +6,7 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:13:39 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/10/02 14:25:31 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:03:50 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,19 @@
 
 class Contact
 {
+	public:
+		Contact(void);
+		~Contact(void);
+		
 	
+	private:
+		bool		is_full;
+		std::string	first_name;
+		std::string	last_name;
+		std::string	phone_number;
+		std::string	nickname;
+		std::string	darkest_secret;
+		
 }
 
 #endif
