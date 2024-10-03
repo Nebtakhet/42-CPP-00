@@ -6,12 +6,14 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 13:13:23 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/10/02 14:13:04 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:06:07 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
+/* Main function that prints the given strings. If no strings are given, then
+it prints a custom message */
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
