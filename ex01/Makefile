@@ -6,11 +6,11 @@
 #    By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/02 13:15:18 by cesasanc          #+#    #+#              #
-#    Updated: 2024/10/02 14:18:07 by cesasanc         ###   ########.fr        #
+#    Updated: 2024/11/20 13:04:19 by cesasanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	RelevantPhoneBook
+NAME	=	Relevant_PhoneBook
 
 SOURCES	=	main.cpp \
 			PhoneBook.cpp \
