@@ -6,7 +6,7 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 13:13:23 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/10/03 16:05:28 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:12:44 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ int	main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			for (int j = 0; argv[i][j]; j++)
-				argv[i][j] = (char)toupper(argv[i][j]);
-			std::cout << argv[i];
-			if (argv[i])
+			std::string str = argv[i];
+			for (size_t j = 0; j < str.length(); j++)
+				str[j] = toupper(str[j]);
+			std::cout << str;
+			if (i < argc - 1)
 				std::cout << " ";
 		}
 		std::cout << std::endl;

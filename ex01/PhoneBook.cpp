@@ -6,7 +6,7 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:11:42 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/11/20 14:53:27 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:20:55 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
+/* Function to get input from the user. It prompts the user with a message and
+waits for the user to input a string. If the input is empty, it prompts the user
+to enter a valid input */
 std::string	PhoneBook::get_input(const std::string &prompt)
 {
 	std::string input;
@@ -44,16 +47,13 @@ std::string	PhoneBook::get_input(const std::string &prompt)
 			std::cout << "Please enter a valid input." << std::endl;
 			continue ;
 		}
-		if (input.length() > 10)
-		{
-			std::cout << "Input is too long. Max. 10 characters" << std::endl;
-			continue ;
-		}
 		return (input);
 	}
 }
 
-/* Function to add a contact to the PhoneBook */
+/* Function to add a contact to the PhoneBook. It creates a new Contact object
+and sets its information, calling the set_info function from the Contact class.
+It then adds the Contact object to the contacts array */
 void	PhoneBook::add_contact(void)
 {
 	Contact new_contact;
@@ -73,6 +73,10 @@ void	PhoneBook::add_contact(void)
 	this->contact_count++;
 }
 
+/* Function to search for a contact in the PhoneBook. It prints the relevant
+information of the contacts in the PhoneBook and prompts the user to enter the
+index of the contact they want to display. If the input is invalid, it prompts
+the user to enter a valid input */
 void PhoneBook::search_contact(void) const
 {
     int max_contacts;
@@ -85,28 +89,20 @@ void PhoneBook::search_contact(void) const
     std::cout << "-------------------------------------------" << std::endl;
     for (int i = 0; i < max_contacts; i++)
         contacts[i].show_contact();
-
     std::cout << "Enter the index of the contact you want to display: ";
     std::getline(std::cin, index_str);
-
-    if (std::cin.eof())
-        exit(1);
-
     if (index_str.empty()
 		|| !std::all_of(index_str.begin(), index_str.end(), [](unsigned char c){ return std::isdigit(c); }))
     {
         std::cout << "Invalid input. Please try again." << std::endl;
         return;
     }
-
     index = std::stoi(index_str) - 1;
-
     if (index < 0 || index >= max_contacts)
     {
         std::cout << "Invalid index. Please try again." << std::endl;
         return;
     }
-
     contacts[index].get_info();
 }
 
