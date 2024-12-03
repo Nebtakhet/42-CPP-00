@@ -6,7 +6,7 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 13:13:23 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/11/26 19:12:44 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:07:03 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int	main(int argc, char **argv)
 			for (size_t j = 0; j < str.length(); j++)
 				str[j] = toupper(str[j]);
 			std::cout << str;
-			if (i < argc - 1)
-				std::cout << " ";
 		}
 		std::cout << std::endl;
 	}

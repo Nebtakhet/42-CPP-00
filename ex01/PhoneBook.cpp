@@ -6,7 +6,7 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:11:42 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/11/26 19:20:55 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:21:55 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,30 +79,43 @@ index of the contact they want to display. If the input is invalid, it prompts
 the user to enter a valid input */
 void PhoneBook::search_contact(void) const
 {
-    int max_contacts;
+    int max_contacts = is_full ? 8 : contact_count;
     std::string index_str;
     int index;
 
-    max_contacts = is_full ? 8 : contact_count;
     std::cout << "***** Relevant PhoneBook Entries *****" << std::endl;
     std::cout << "|   Index  |First Name|Last  Name| Nickname |" << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
     for (int i = 0; i < max_contacts; i++)
         contacts[i].show_contact();
+
     std::cout << "Enter the index of the contact you want to display: ";
     std::getline(std::cin, index_str);
+	
     if (index_str.empty()
 		|| !std::all_of(index_str.begin(), index_str.end(), [](unsigned char c){ return std::isdigit(c); }))
     {
         std::cout << "Invalid input. Please try again." << std::endl;
         return;
     }
-    index = std::stoi(index_str) - 1;
-    if (index < 0 || index >= max_contacts)
-    {
-        std::cout << "Invalid index. Please try again." << std::endl;
-        return;
-    }
+	try
+	{
+		index = std::stoi(index_str) - 1;
+		if (index < 0 || index >= max_contacts)
+		{
+			std::cout << "Invalid index. Please try again." << std::endl;
+			return;
+		}
+	}
+	catch (const std::invalid_argument&)
+	{
+		std::cout << "Invalid input. Please try again." << std::endl;
+		return ;
+	}
+	catch (const std::out_of_range&)
+	{
+		std::cout << "Number too large. Please try again." << std::endl;
+		return ;
+	}
     contacts[index].get_info();
 }
-
