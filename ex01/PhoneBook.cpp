@@ -6,7 +6,7 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:11:42 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/12/03 18:21:55 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:07:15 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,6 @@ void PhoneBook::search_contact(void) const
     std::cout << "Enter the index of the contact you want to display: ";
     std::getline(std::cin, index_str);
 	
-    if (index_str.empty()
-		|| !std::all_of(index_str.begin(), index_str.end(), [](unsigned char c){ return std::isdigit(c); }))
-    {
-        std::cout << "Invalid input. Please try again." << std::endl;
-        return;
-    }
 	try
 	{
 		index = std::stoi(index_str) - 1;
@@ -107,11 +101,13 @@ void PhoneBook::search_contact(void) const
 			return;
 		}
 	}
+	
 	catch (const std::invalid_argument&)
 	{
 		std::cout << "Invalid input. Please try again." << std::endl;
 		return ;
 	}
+	
 	catch (const std::out_of_range&)
 	{
 		std::cout << "Number too large. Please try again." << std::endl;
