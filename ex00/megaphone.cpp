@@ -6,7 +6,7 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 13:13:23 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/12/12 13:56:50 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:35:38 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,19 @@ int	main(int argc, char **argv)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 	{
+		bool printed = false;
 		for (int i = 1; i < argc; i++)
 		{
 			std::string str = argv[i];
+			if (str.empty())
+				continue ;
 			for (size_t j = 0; j < str.length(); j++)
 				str[j] = toupper(str[j]);
 			std::cout << str;
+			printed = true;
 		}
+		if (!printed)
+			std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 		std::cout << std::endl;
 	}
 	return (0);
