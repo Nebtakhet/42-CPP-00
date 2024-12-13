@@ -6,7 +6,7 @@
 /*   By: cesasanc <cesasanc@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:12:11 by cesasanc          #+#    #+#             */
-/*   Updated: 2024/12/12 14:03:21 by cesasanc         ###   ########.fr       */
+/*   Updated: 2024/12/13 12:55:25 by cesasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 # include <string>
-# include <iomanip>
-# include <cctype>
 # include "Contact.hpp"
 
 class PhoneBook
